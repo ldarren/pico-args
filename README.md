@@ -1,8 +1,8 @@
---Pico Arguments Lib
+#Pico Arguments Lib
 Yet another barebone command line arguments library
 
----Usage
-----defined default arguments
+##Usage
+###defined default arguments
 ```javascript
 var defaults={
 	name: ['{DEFAULT_NAME}','{DESCRIPTION}'],
@@ -17,7 +17,7 @@ or
 ```
 CMD -n xyz
 ```
-----parse arguments
+###parse arguments
 ```javascript
 var
 args=require('pico-args'),
@@ -26,12 +26,12 @@ options=args.parse(defaults)
 console.log(options.name)
 console.log(options.n)
 ```
-----print arguments
+###print arguments
 this function requires pico-common module
 ```javascript
 args.print('{TITLE}',options)
 ```
-----print usage
+###print usage
 this function requires pico-common module
 ```javascript
 args.usage(defaults)
