@@ -21,7 +21,7 @@ parse=function(key, args, i, ret){
 	case 'boolean': ret[key]= t; break
 	case 'string': ret[key]= args[++i]; break
 	case 'number': ret[key]= parseFloat(args[++i]); break
-	case 'object': ret[key]= try{JSON.parse(args[++i])}catch(e){return 0} break
+	case 'object': try{ret[key]=JSON.parse(args[++i])}catch(e){return 0} break
 	default: return 0
 	}
 	return i

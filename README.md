@@ -91,7 +91,7 @@ var defaults={
 	a:[true,'flag a'],
 	b:[false,'flag b'],
 	c:[true,'flag c'],
-	d:['/opt/','path'']
+	d:['/opt/','path']
 }
 ```
 ```
