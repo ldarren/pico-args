@@ -84,3 +84,16 @@ this function requires pico-common module
 ```javascript
 args.usage(defaults)
 ```
+###argument combo
+single character arguments can be string in one word
+```javascript
+var defaults={
+	a:[true,'flag a'],
+	b:[false,'flag b'],
+	c:[true,'flag c'],
+	d:['/opt/','path'']
+}
+```
+```
+CMD -Abcd '~/src'
+```
