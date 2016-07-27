@@ -6,7 +6,7 @@
 // - alias
 var
 path= require('path'),
-picoStr= require('pico').export('pico/str'),
+picoStr= require('pico-common').export('pico/str'),
 beginner= 45,
 alias= function(defaults, ret, key){
     var a=defaults[key]
