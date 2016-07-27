@@ -10,7 +10,7 @@ picoStr= require('pico-common').export('pico/str'),
 beginner= 45,
 alias= function(defaults, ret, key){
     var a=defaults[key]
-    if ('@'===a[0]) ret[a.substr(1)]=ret[key]
+    if (a && '@'===a[0]) ret[a.substr(1)]=ret[key]
 },
 parse=function(key, args, i, ret){
 	var t=key.charCodeAt(0)>96
