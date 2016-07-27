@@ -1,12 +1,13 @@
 {
   "name": "pico-args",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "pico command line arguments parser",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "node test.js"
   },
   "dependencies": {
+    "pico-common": "^0.5.7"
   },
   "repository": {
     "type": "git",
