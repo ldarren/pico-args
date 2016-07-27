@@ -11,6 +11,20 @@ beginner= 45,
 alias= function(defaults, ret, key){
     var a=defaults[key]
     if ('@'===a[0]) ret[a.substr(1)]=ret[key]
+},
+parse=function(key, args, i, ret){
+	var t=key.charCodeAt(0)>96
+	key=key.toLowerCase()
+	var val=ret[key]
+	if (undefined===val) return 0
+	switch(typeof val){
+	case 'boolean': ret[key]= t; break
+	case 'string': ret[key]= args[++i]; break
+	case 'number': ret[key]= parseFloat(args[++i]); break
+	case 'object': ret[key]= try{JSON.parse(args[++i])}catch(e){return 0} break
+	default: return 0
+	}
+	return i
 }
 
 module.exports= {
@@ -33,31 +47,14 @@ module.exports= {
                 if (a.length < 2) break error
                 if (b !== a.charCodeAt(0)) break error
                 if (b === a.charCodeAt(1)){
-                    a=a.substr(2)
-                    t=a.charCodeAt(0)>96
-                    a=a.toLowerCase()
-                    val=ret[a]
-                    if (undefined===val) break error
-                    switch(typeof val){
-                    case 'boolean': ret[a]= t; break
-                    case 'string': ret[a]= args[++i]; break
-                    case 'number': ret[a]= parseFloat(args[++i]); break
-                    default: break error
-                    }
+					i=parse(a.substr(2), args, i, ret)
+					if (!i) break error
                     alias(defaults, ret, a)
                 }else{
                     for(j=1,c; c=a.charAt(j); j++){
-                        t=c.charCodeAt(0)>96
-                        c=c.toLowerCase()
-                        val=ret[c]
-                        if (undefined===val) break error
-                        switch(typeof val){
-                        case 'boolean': ret[c]= t; break
-                        case 'string': ret[c]= args[++i]; break
-                        case 'number': ret[c]= parseFloat(args[++i]); break
-                        default: break error
-                        }
-                        alias(defaults, ret, c)
+						i=parse(c, args, i, ret)
+						if (!i) break error
+						alias(defaults, ret, a)
                     }
                 }
             }

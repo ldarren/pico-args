@@ -17,6 +17,54 @@ or
 ```
 CMD -n xyz
 ```
+###data type
+supported 4 datatypes: string, boolean, number and object/array
+to set string type
+```javascript
+var defaults={
+	str: ['default','default str is "default"'],
+	s:'@str'
+}
+```
+to set boolean type
+```javascript
+var defaults={
+	bool: [false,'default bool is false'],
+	b:'@bool'
+}
+```
+set it to true
+```
+CMD -b # or CMD --bool
+```
+set it to false
+```
+CMD -B # or CMD --BOOL
+```
+to set number type
+```javascript
+var defaults={
+	float: [0,'default float is 0'],
+	f:'@float'
+}
+```
+to set object type
+```javascript
+var defaults={
+	obj: [{foo:"bar"},'default obj is {foo:"bar"}'],
+	o:'@obj'
+}
+```
+or
+```javascript
+var defaults={
+	obj: [['foo','bar'],'default obj is ["foo","bar"]'],
+	o:'@obj'
+}
+```
+```
+CMD -o '{"hello":"world"}' #or CMD --obj '{"hello":"world"}'
+```
 ###parse arguments
 ```javascript
 var
