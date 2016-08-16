@@ -3,12 +3,13 @@
 // - boolean, -V (false) -v (true)
 // - default args
 // - group args, -zxf
-// - alias
+// - alias, @arg
 var
 path= require('path'),
 picoStr= require('pico-common').export('pico/str'),
 beginner= 45,
 alias= function(defaults, ret, key){
+console.log(key,ret[key])
     var a=defaults[key]
     if (a && '@'===a[0]) ret[a.substr(1)]=ret[key]
 },
@@ -54,7 +55,7 @@ module.exports= {
                     for(j=1,c; c=a.charAt(j); j++){
 						i=parse(c, args, i, ret)
 						if (!i) break error
-						alias(defaults, ret, a)
+						alias(defaults, ret, c)
                     }
                 }
             }
