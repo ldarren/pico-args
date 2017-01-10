@@ -9,7 +9,6 @@ path= require('path'),
 picoStr= require('pico-common').export('pico/str'),
 beginner= 45,
 alias= function(defaults, ret, key){
-console.log(key,ret[key])
     var a=defaults[key]
     if (a && '@'===a[0]) ret[a.substr(1)]=ret[key]
 },
