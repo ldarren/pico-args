@@ -1,6 +1,6 @@
 {
   "name": "pico-args",
-  "version": "1.0.8",
+  "version": "1.0.9",
   "description": "pico command line arguments parser",
   "main": "index.js",
   "scripts": {

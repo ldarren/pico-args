@@ -16,7 +16,7 @@ parse=function(key, args, i, ret){
 	var t=key.charCodeAt(0)>96
 	key=key.toLowerCase()
 	var val=ret[key]
-	if (undefined===val) return 0
+	if (void 0===val) return 0
 	switch(typeof val){
 	case 'boolean': ret[key]= t; break
 	case 'string': ret[key]= args[++i]; break
