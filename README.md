@@ -1,8 +1,8 @@
-#Pico Arguments Lib
+# Pico Arguments Lib
 Yet another barebone command line arguments library
 
-##Usage
-###defined default arguments
+## Usage
+### Defined default arguments
 ```javascript
 var defaults={
 	name: ['{DEFAULT_NAME}','{DESCRIPTION}'],
@@ -17,7 +17,7 @@ or
 ```
 CMD -n xyz
 ```
-###data type
+### Data types
 supported 4 datatypes: string, boolean, number and object/array
 to set string type
 ```javascript
@@ -65,26 +65,25 @@ var defaults={
 ```
 CMD -o '{"hello":"world"}' #or CMD --obj '{"hello":"world"}'
 ```
-###parse arguments
+### Parse arguments
 ```javascript
-var
-args=require('pico-args'),
+var args=require('pico-args'),
 options=args.parse(defaults)
 
 console.log(options.name)
 console.log(options.n)
 ```
-###print arguments
+### Print arguments
 this function requires pico-common module
 ```javascript
 args.print('{TITLE}',options)
 ```
-###print usage
+### Print usage
 this function requires pico-common module
 ```javascript
 args.usage(defaults)
 ```
-###argument combo
+### Argument combo
 single character arguments can be string in one word
 ```javascript
 var defaults={
