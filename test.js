@@ -1,13 +1,11 @@
-var
-pico=require('pico-common'),
-test= pico.export('pico/test'),
-ensure= test.ensure,
-args=require('./index')
+const pico = require('pico-common/bin/pico-cli')
+const {test} = pico.export('pico/test')
+const args = require('./index')
 
 console.log(process.argv)
 
-ensure('ensure parse works', (cb)=>{
-	var defaults={
+test('ensure parse works', (cb)=>{
+	const defaults={
 		proj:['','project name'],
 		p:'@proj',
 		env:['pro','environment: dev, st or pro'],
@@ -23,22 +21,20 @@ ensure('ensure parse works', (cb)=>{
 	}
 	cb(null, !!args.parse(defaults))
 })
-ensure('ensure default overriden, run test with npm test -- --proj XXX', (cb)=>{
-	var
-	dp=`proj${Date.now()}`
-	defaults={
+test('ensure default overriden, run test with npm test -- --proj hello', (cb)=>{
+	const dp=`proj${Date.now()}`
+	const defaults={
 		proj:[dp,'project name'],
 		p:'@proj'
-	},
-	opts=args.parse(defaults)
-	cb(null, opts.proj)
+	}
+	const opts=args.parse(defaults)
+	cb(null, 'hello' === opts.proj)
 })
-ensure('ensure alias works, run test with npm test -- -p XXX', (cb)=>{
-	var
-	defaults={
+test('ensure alias works, run test with npm test -- -p hello', (cb)=>{
+	const defaults={
 		proj:['','project name'],
 		p:'@proj'
-	},
-	opts=args.parse(defaults)
-	cb(null, opts.proj)
+	}
+	const opts=args.parse(defaults)
+	cb(null, 'hello' === opts.proj)
 })
