@@ -1,10 +1,12 @@
 {
   "name": "pico-args",
-  "version": "1.0.11",
+  "version": "1.0.12",
   "description": "pico command line arguments parser",
   "main": "index.js",
   "scripts": {
-    "test": "node test.js --proj hello"
+    "test": "node test.js --proj hello",
+	"lint": "eslint .",
+	"lint:fix": "eslint . --fix"
   },
   "dependencies": {
     "pico-common": "^0.10.9"
