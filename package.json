@@ -1,6 +1,6 @@
 {
   "name": "pico-args",
-  "version": "1.0.12",
+  "version": "1.0.13",
   "description": "pico command line arguments parser",
   "main": "index.js",
   "scripts": {
@@ -9,7 +9,7 @@
 	"lint:fix": "eslint . --fix"
   },
   "dependencies": {
-    "pico-common": "^0.10.9"
+    "pico-common": "*"
   },
   "repository": {
     "type": "git",

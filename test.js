@@ -19,6 +19,8 @@ test('ensure parse works', (cb)=>{
 		lean:[true,'embed lean library'],
 		pico:[true,'embed pico library']
 	}
+	const options = args.parse(defaults)
+	console.log(options)
 	cb(null, !!args.parse(defaults))
 })
 test('ensure default overriden, run test with npm test -- --proj hello', (cb)=>{
